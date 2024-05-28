@@ -1,4 +1,17 @@
-from functions import get_todos, write_todos
+def get_todos(filepath):
+    # Funkcija za čitanje iz fajla
+    with open(filepath, "r") as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+
+def write_todos(filepath, todos_arg):
+    # Funkcija upis u fajl
+    with open(filepath, "w") as file_local:
+        file_local.writelines(todos_arg)
+
+#  -----------------------------------------------------------------------------
+
 
 while True:
     user_action = input("type add, show, edit, complete (then space and command) or exit: ")
@@ -6,12 +19,13 @@ while True:
 
     if user_action.startswith("add"):
         todo = user_action[4:]
-        todos = get_todos()  # Ne treba parametar, ima default
+        todos = get_todos("../files/todos.txt")
         todos.append(todo + "\n")
-        write_todos(todos)  # Ne treba drugi parametar, ima default
+        #  Nova funkcija
+        write_todos("../files/todos.txt", todos)
 
     elif user_action.startswith("show"):
-        todos = get_todos()  # Ne treba parametar, ima default
+        todos = get_todos("../files/todos.txt")
         for index, item in enumerate(todos):
             item = item.strip("\n")
             row = f"{index + 1}-{item}"
@@ -22,10 +36,11 @@ while True:
             number = int(user_action[5:])
             print(number)
             number = number - 1
-            todos = get_todos()  # Ne treba parametar, ima default
+            todos = get_todos("../files/todos.txt")
             new_todo = input("enter new todo: ")
             todos[number] = new_todo + "\n"
-            write_todos(todos)  # Ne treba drugi parametar, ima default
+            #  Nova funkcija
+            write_todos("../files/todos.txt", todos)
         except ValueError:
             print("Your command is not valid, format is ACTION NUMBER")
             continue
@@ -33,11 +48,12 @@ while True:
     elif user_action.startswith("complete"):
         try:
             number = int(user_action[9:])
-            todos = get_todos()  # Ne treba parametar, ima default
+            todos = get_todos("../files/todos.txt")
             index = number - 1
             todo_to_remove = todos[index].strip("\n")
             todos.pop(index)
-            write_todos(todos)  # Ne treba drugi parametar, ima default
+            #  Nova funkcija
+            write_todos("../files/todos.txt", todos)
             message = f"item {todo_to_remove} is completed and removed from list"
             print(message)
         except IndexError:
