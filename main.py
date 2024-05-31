@@ -5,9 +5,6 @@ import time
 now = time.strftime("%H:%M:%S, %d %b, %Y ")
 print(f"Now it is: {now}")
 
-print("Ovo je za testiranje promene na GIT-u")
-print("Ovo je za testiranje promene na GIT-u")
-
 while True:
     user_action = input("type add, show, edit, complete (then space and command) or exit: ")
     user_action = user_action.strip()
