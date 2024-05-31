@@ -4,8 +4,4 @@ leftovers
 minesweaper
 airplanes
 guns
-money
-tank
-baloon
-washing
-ride a horse
+proggramingcar
