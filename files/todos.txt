@@ -6,3 +6,6 @@ airplanes
 guns
 money
 tank
+baloon
+washing
+ride a horse
