@@ -6,7 +6,7 @@ input_box = sg.InputText(tooltip="Enter Todo", key="key_input_todo")
 add_button = sg.Button("Add")  # Mora bit isto napisano kao u case
 list_box = sg.Listbox(values=get_todos(), key="key_todos_listbox",
                       enable_events=True, size=[45, 10])
-edit_button = sg.Button("Edit") # Mora bit isto napisano kao u case
+edit_button = sg.Button("Edit")  # Mora bit isto napisano kao u case
 
 window = sg.Window("My To-Do App",
                    layout=[[label],
@@ -26,18 +26,21 @@ while True:
             todos.append(new_todo)
             write_todos(todos)
             window["key_todos_listbox"].update(values=todos)
+
         case "Edit":
             todo_to_edit = values["key_todos_listbox"][0]
             new_todo = values["key_input_todo"]
-
             todos = get_todos()
             index = todos.index(todo_to_edit)
             todos[index] = new_todo
             write_todos(todos)
             window["key_todos_listbox"].update(values=todos)
+
         case "key_todos_listbox":
             window["key_input_todo"].update(value=values["key_todos_listbox"][0])
+
         case sg.WIN_CLOSED:
-            break
+            break  # Stopira samo while petlju u toku
+            #exit() Stopira ceo program odmah
 
 window.close()
