@@ -1,7 +1,20 @@
 import time
-from functions import get_todos, write_todos
 import FreeSimpleGUI as sg
 import os
+
+FILEPATH = "todos.txt"
+
+
+def get_todos(filepath=FILEPATH):
+    with open(filepath, "r") as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+
+def write_todos(todos_arg, filepath=FILEPATH):
+    with open(filepath, "w") as file_local:
+        file_local.writelines(todos_arg)
+
 
 if not os.path.exists("todos.txt"):
     with open("todos.txt", "w") as file:
@@ -33,21 +46,29 @@ window = sg.Window("My To-Do App",
 while True:
     event, values = window.read(timeout=500)
     window["key_label_clock"].update(value=time.strftime("%H:%M:%S"))
-#    print(1, event)  # Šta je kliknuto, koji element gui
-#    print(2, values)  # vrednost svih elemenata windowa - rečnik
-#    print(3, values["key_todos_listbox"])
+
     match event:
+        case sg.WIN_CLOSED:
+            break
+
+        case "Exit":
+            break
+
         case "Add":
             todos = get_todos()
-            new_todo = values["key_input_todo"] + "\n"
-            todos.append(new_todo)
-            write_todos(todos)
-            window["key_todos_listbox"].update(values=todos)
+            new_todo = values["key_input_todo"].strip() + "\n"
+            if new_todo.strip():  # Check if the todos is not empty
+                todos.append(new_todo)
+                write_todos(todos)
+                window["key_todos_listbox"].update(values=todos)
+            else:
+                sg.popup("Please enter a todo item", font=("Calibri", 15))
+            window["key_input_todo"].update("")
 
         case "Edit":
             try:
                 todo_to_edit = values["key_todos_listbox"][0]
-                new_todo = values["key_input_todo"]
+                new_todo = values["key_input_todo"].strip() + "\n"
                 todos = get_todos()
                 index = todos.index(todo_to_edit)
                 todos[index] = new_todo
@@ -69,14 +90,7 @@ while True:
                 sg.popup("Please select item in list first",
                          font=("Calibri", 15))
 
-        case "Exit":
-            break
-
         case "key_todos_listbox":
             window["key_input_todo"].update(value=values["key_todos_listbox"][0])
-
-        case sg.WIN_CLOSED:
-            break  # Stopira samo while petlju u toku
-            # exit() Stopira ceo program odmah
 
 window.close()
