@@ -8,14 +8,14 @@ clock_label = sg.Text("", key="key_label_clock")
 input_label = sg.Text("Type in a todo")
 input_box = sg.InputText(tooltip="Enter Todo",
                          key="key_input_todo")
-add_button = sg.Button("Add", size=12)  # Mora bit isto napisano kao u case
+add_button = sg.Button("Add", size=12)
 list_box = sg.Listbox(values=get_todos(),
                       key="key_todos_listbox",
                       enable_events=True,
                       size=(45, 10))
-edit_button = sg.Button("Edit")  # Mora bit isto napisano kao u case
-complete_button = sg.Button("Complete")  # Mora bit isto napisano kao u case
-exit_button = sg.Button("Exit")  # Mora bit isto napisano kao u case
+edit_button = sg.Button("Edit")
+complete_button = sg.Button("Complete")
+exit_button = sg.Button("Exit")
 
 window = sg.Window("My To-Do App",
                    layout=[[clock_label],

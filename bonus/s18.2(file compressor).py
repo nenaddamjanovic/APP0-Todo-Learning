@@ -1,5 +1,5 @@
 import FreeSimpleGUI as sg
-from zip_creator import make_archive
+from Fzip_creator import make_archive
 
 label1 = sg.Text("Select files to compress:")
 input1 = sg.Input(key="input_src_files")
@@ -28,30 +28,16 @@ while True:
 
 window.close()
 
+# -------------------------------------------------------------------------------
+
 # Compress {'input_src_files': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/forziptest1.txt',
 #          'button_filepath': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/forziptest1.txt',
 #          'input_dst_folder': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/dest',
 #          'button_folder': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/dest'}
-
-# -------------------------------------------------------------------------------
 
 # Compress {0: 'C:/Users/Nenad/PycharmProjects/APP1/bonus/questions.json',
 #          'Choose': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/questions.json',
 #          1: 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files',
 #          'Choose0': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files'}
 
-# Compress {0: 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files/weather.csv',
-#           'button_filepath': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files/weather.csv',
-#           1: 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files',
-#           'button_folder': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files'}
 
-# Compress {'input_src_files': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files/bla.txt',
-#           'button_filepath': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files/bla.txt',
-#           'input_dst_folder': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files',
-#           'button_folder': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/files'}
-#
-
-# Compress {'input_src_files': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/forziptest1.txt;C:/Users/Nenad/PycharmProjects/APP1/bonus/forziptest2.py',
-#           'button_filepath': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/forziptest1.txt;C:/Users/Nenad/PycharmProjects/APP1/bonus/forziptest2.py',
-#           'input_dst_folder': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/dest',
-#           'button_folder': 'C:/Users/Nenad/PycharmProjects/APP1/bonus/dest'}

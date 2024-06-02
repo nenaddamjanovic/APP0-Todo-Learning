@@ -1,5 +1,5 @@
-from APP1.bonus.convert import convert
-from APP1.bonus.parsers import parse
+from Fconvert import convert
+from Fparsers import parse
 
 feet_inches = input("Enter feet in inches: ")
 
