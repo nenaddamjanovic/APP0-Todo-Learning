@@ -1,4 +1,4 @@
-from Fconvert import convert
+from Fconvertfeetinches import convert
 from Fparsers import parse
 
 feet_inches = input("Enter feet in inches: ")

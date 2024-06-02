@@ -1,5 +1,5 @@
 import FreeSimpleGUI as sg
-from converters import convert
+from Fconvertfeetinches import convert
 
 label1 = sg.Text("Enter feet:")
 input1 = sg.Input(key="input_feet")

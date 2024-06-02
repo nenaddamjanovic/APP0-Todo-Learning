@@ -15,7 +15,7 @@ def parse(feet_inches):
 
 def convert(feet, inches):
     """
-    bla bla bla
+    Funkcija vrši pretvaranje sopa i inča u metre
     :param feet:
     :param inches:
     :return:
