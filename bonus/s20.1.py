@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 from pathlib import Path
 
+
 st.header("Takes your picture and turns it to grayscale")
 
 # Create a file uploader component allowing the user to upload a file
