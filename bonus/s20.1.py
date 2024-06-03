@@ -41,6 +41,6 @@ if camera_image:
 
     # Construct the path to the desktop
     desktop_path = Path.home() / "Desktop" / "saved_image.jpg"
-
     # Save the result
     rgb_img.save(desktop_path)
+    st.write("Image saved to desktop")
