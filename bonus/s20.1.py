@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from pathlib import Path
 
 st.header("Takes your picture and turns it to grayscale")
 st.write("Click on 'Start camera' and allow browser to use camera")
@@ -35,3 +36,11 @@ if camera_image:
     st.image(binary_img)
     st.write("pallete image:")
     st.image(palette_img)
+
+# --------------------------------------------------------------
+
+    # Construct the path to the desktop
+    desktop_path = Path.home() / "Desktop" / "saved_image.jpg"
+
+    # Save the result
+    rgb_img.save(desktop_path)
