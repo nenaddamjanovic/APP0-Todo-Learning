@@ -3,7 +3,23 @@ from PIL import Image
 from pathlib import Path
 
 st.header("Takes your picture and turns it to grayscale")
-st.write("Click on 'Start camera' and allow browser to use camera")
+
+# Create a file uploader component allowing the user to upload a file
+uploaded_image = st.file_uploader("Upload Image")
+
+# Check if the image exists meaning the user has uploaded a file
+if uploaded_image:
+    # Open the user uploaded image with PIL
+    img = Image.open(uploaded_image)
+    # Convert the image to grayscale
+    gray_uploaded_img = img.convert('L')
+    # Display the grayscale image on the webpage
+    st.write("This is your grayscale converted image:")
+    st.image(gray_uploaded_img)
+
+st.divider()
+st.write("or click on 'Start camera' and allow browser to use camera")
+
 with st.expander("Start camera"):
     # We start a camera here
     camera_image = st.camera_input("Camera")
