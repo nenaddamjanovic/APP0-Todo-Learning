@@ -27,7 +27,11 @@ if camera_image:
 # ------------------------------------------------------------
 
     # Render on browser
+    st.write("grayscale image:")
     st.image(gray_img)
+    st.write("rgb image:")
     st.image(rgb_img)
+    st.write("binary image:")
     st.image(binary_img)
+    st.write("pallete image:")
     st.image(palette_img)
